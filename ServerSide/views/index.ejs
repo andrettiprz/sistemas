@@ -34,5 +34,13 @@
       <li><strong><%= book.title %></strong> by <%= book.author %></li>
       <% }); %>
     </ul>
+    <h1>Add a new book</h1>
+    <form action="POST" target="">
+      <label>Title</label>
+      <input type="text" id="title" />
+      <label>Author</label>
+      <input type="text" id="author" />
+      <button id="add">Add Book</button>
+    </form>
   </body>
 </html>
