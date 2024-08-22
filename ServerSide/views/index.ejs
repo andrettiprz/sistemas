@@ -35,13 +35,12 @@
       <% }); %>
     </ul>
     <h1>Add a new book</h1>
-    <form action="POST" target="">
+    <form action="/addBook" method="POST">
       <label>Title</label>
-      <input type="text" id="title" />
+      <input type="text" id="title" name="title" required>
       <label>Author</label>
-      <input type="text" id="author" />
+      <input type="text" id="author" name="author" required>
       <button id="add">Add Book</button>
-      <h2>lol</h2>
     </form>
   </body>
 </html>

@@ -1,10 +1,12 @@
 // app.js
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Sample data
 const books = [
@@ -16,6 +18,14 @@ const books = [
 // Route for the home page
 app.get("/", (req, res) => {
   res.render("index", { books: books });
+});
+
+
+//Para añadir otro libro
+app.post("/addBook", (req, res) => {
+  const newBook = { title: req.body.title, author: req.body.author };
+  books.push(newBook);
+  res.redirect("/");
 });
 
 // Start the server
