@@ -1,12 +1,12 @@
 // app.js
 const express = require("express");
-const bodyParser = require("body-parser");
+
 const app = express();
 const port = 3000;
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // Sample data
 const books = [
