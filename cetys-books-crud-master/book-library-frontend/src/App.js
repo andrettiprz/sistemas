@@ -30,11 +30,24 @@ function App() {
     setBooks(books.filter((book) => book.id !== id));
   };
 
+  const updateBook = async (id, updatedBook) => {
+    const response = await fetch(`/api/books/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedBook),
+    });
+    
+    const updatedBookData = await response.json();
+  
+    // Actualizar el estado con los detalles del libro actualizado
+    setBooks(books.map((book) => (book.id === id ? updatedBookData : book)));
+  };
+
   return (
     <div className="App">
       <h1>Book Library</h1>
       <BookForm addBook={addBook} />
-      <BookList books={books} deleteBook={deleteBook} />
+      <BookList books={books} deleteBook={deleteBook} updateBook={updateBook}/>
     </div>
   );
 }
